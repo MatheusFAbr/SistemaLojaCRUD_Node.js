@@ -1,0 +1,49 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    font-family: Barlow;
+}
+    body {
+        font-family: 'Barlow', sans-serif;
+        background-color: #343434;
+        margin: 0;
+        padding: 0;
+    }
+
+    .bold-text {
+        font-weight: bold;
+        color: white;
+    }
+</style>
+
+<br><br>
+<div class="container">
+    <div class="card bg-dark text-light" style="border: 2px solid white;">
+        <div class="card-header text-center">
+            <br>
+                <h1 style="color: white;"><b>Editar Cliente</b></h1>
+            <br>
+        </div>
+
+        <div class="card-body" style="border: 2px solid white;">
+            <form action="/clientes/update" method="post">
+                <br>
+                <label><b style="font-size: 17px;">Nome do cliente</b></label>
+                <input class="form-control" type="text" name="nome" id="nome" value="<%= cliente.nome %>" required>
+                <br>
+                <label><b style="font-size: 17px;">CPF do cliente</b></label>
+                <input class="form-control" type="text" name="cpf" id="cpf" value="<%= cliente.cpf %>" required>
+                <br>
+                <label><b style="font-size: 17px;">Endereço do cliente</b></label>
+                <input class="form-control" type="text" name="endereco" id="endereco" value="<%= cliente.endereco %>" required>
+                <input type="hidden" name="id" value="<%= cliente.id %>">
+                <br>
+                <input type="submit" class="btn btn-primary bold-text" value="Alterar" onclick="return confirm('Confirma as alterações para o cliente <%= cliente.nome %>')">
+            </form>
+        </div>
+    </div>
+</div>
